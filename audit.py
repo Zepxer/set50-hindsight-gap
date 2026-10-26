@@ -52,7 +52,7 @@ for symbol in sorted(all_symbols):
     })
 
 audit = pd.DataFrame(rows)
-audit.to_csv("data/audit_ikkyu.csv",
+audit.to_csv("data/audit.csv",
              index=False)
 
 print(audit)
