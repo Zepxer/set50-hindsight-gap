@@ -69,3 +69,39 @@ I went through it lesson by lesson to understand it. The comparisons marked **(m
 3. It measured its own weakness: 8% power, so "no edge" means "can't tell yet".
 4. Today's Dow 30 tested backwards adds +5.36%/yr of fake performance.
 5. The only clean evidence is forward paper trading, still collecting.
+
+---
+
+# Questions about my own code (audit.py, 26 Oct)
+
+## Why a `set` instead of lists for `all_symbols`?
+- A **set** is a collection where **each item appears only once**, and order doesn't matter.
+  Adding an item that's already inside does nothing.
+- The two SET50 lists share **29 stocks**. Joining two plain lists would give **100 entries**,
+  with those 29 twice, so they'd be downloaded twice and counted twice in the audit.
+- The **union** `set_2012 | set_2026` keeps everything in either list, once:
+  50 + 50 − 29 = **71 stocks**, plus TDEX = **72**. That matches the 72 rows of the audit,
+  which is a built-in check.
+- Sets have other operations that answer research questions directly:
+  - `set_2012 & set_2026`, the **intersection**, gives the 29 survivors (in both lists);
+  - `set_2012 - set_2026`, the **difference**, gives the 21 that left the SET50.
+- `symbol in set_2012` (True/False) is also **fast** with a set: Python jumps straight to the item
+  instead of checking the list one by one.
+- A set has **no order**, so `sorted(all_symbols)` is used to loop in alphabetical order and keep
+  the output the same every run.
+
+## What does `auto_adjust=True` change about the prices?
+- It rewrites old prices so **splits and dividends don't look like price moves**.
+- **Splits:** PTT split 1 share into 10 on 2018-04-24. Unadjusted, that day looks like a fake
+  **−90% crash**. Adjusted, every price before 2018 is divided by 10.
+- **Dividends:** old prices are lowered slightly for every dividend paid since, so the series shows
+  **total return** (price change + dividends received). Fair for Thai stocks, which pay big dividends.
+- That's why PTT shows about 16.68 baht in July 2012 instead of about 300.
+
+## Why does `first > 2012-07-02` find late listers but not the no-data stocks?
+- A **late lister** has a real first date after 2 July 2012 (OR: 2021-02-11), so the comparison
+  is **True**.
+- A **no-data** stock has no dates at all, so its `first` is **NaT** ("Not a Time", an empty date).
+  Any comparison with NaT is **False**, so those stocks are left out.
+- So the two warning lists don't overlap: each problem gets its own list.
+- Related trap: **NaN never equals NaN**, so to test for empty values use `.isna()`, not `== NaN`.
