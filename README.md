@@ -3,8 +3,8 @@
 **Question:** how much does testing *today's* SET50 on the past flatter a backtest, compared with the
 list an investor could actually have picked in 2012?
 
-Method from Quantz D-048, applied to the Thai market. All code in this project is written by hand by
-Ikkyu; Claude explains and reviews.
+Method from Quantz D-048, applied to the Thai market. All code in this project is written by Ikkyu;
+Claude explains and reviews.
 
 ## Folders
 
@@ -13,7 +13,7 @@ Ikkyu; Claude explains and reviews.
 | `data/` | The two SET50 lists, the audit table, and `cache/` (downloaded prices, not committed) |
 | `sources/` | `SOURCES.md` (every outside fact and where it came from) and `wayback/` (saved SET pages) |
 | `notes/` | `DECISIONS.md` (every choice and why) and `quantz-lessons.md` (what I learned from Quantz) |
-| `audit.py` | Day 2: downloads both lists and records missing data (written by Claude; being retyped) |
+| `audit.py` | Downloads both lists and records missing data (written by Ikkyu from a description, 26 Oct; replaced Claude's first version) |
 
 ## Plan
 
@@ -21,7 +21,7 @@ Ikkyu; Claude explains and reviews.
 |---|---|---|
 | 1 | ✅ | Find the 2012 SET50 list |
 | 2 | ✅ | Download prices, audit missing data |
-| 3.0 | ⬜ | Retype `audit.py` by hand (`audit_mine.py`) |
+| 3.0 | ✅ | Write my own `audit.py` (matches the original exactly) |
 | 3.1 | ⬜ | `backtest.py`: load prices into one table, fix renamed tickers |
 | 3.2 | ⬜ | Daily returns and equal-weight portfolios |
 | 3.3 | ⬜ | Bought-out stocks, both ways |

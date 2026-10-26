@@ -47,3 +47,9 @@ Revised plan: https://claude.ai/artifact/NWcc18pUX44H3iFfGPLh1b (audit: https://
   years, which biases the gap toward zero; SCB and BANPU are in both lists.
 - Power: σ ≈ 8.4%/yr from the Quantz Dow result, so the smallest detectable gap ≈ 6.2%/yr (approximate).
 - Authorship: audit.py is disclosed as written with Claude, not retyped. All analysis code is written by Ikkyu.
+
+## D-8: audit.py is now Ikkyu's own (2026-10-26)
+Ikkyu wrote `audit.py` himself from a description in words, with hints, without looking at Claude's
+version. Its output matches Claude's exactly (72 rows; same 12 no-data and 16 late-start stocks), so
+Claude's version was deleted (still in Git history). Supersedes the authorship line of D-7: all code in
+the project is written by Ikkyu; Claude explains and reviews.
