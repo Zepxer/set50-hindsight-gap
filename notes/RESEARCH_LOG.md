@@ -77,3 +77,34 @@ One entry per step: what was done, what was found, what it means.
   - The file was moved to `data/external/data1_THA.csv`.
   - `data/external/` was added to `.gitignore` (too big for Git; the DOI + hash make it reproducible).
 - BANPU: wait for Thursday's check.
+
+### Step 5: Link checks, first batch (Ikkyu)
+- **TMB → TTB:** ✔ InfoQuest confirms it.
+- **HEMRAJ:** ✔ event confirmed. 4.50 baht was WHA's price for the 22.53% block (and the VTO).
+  The delisting tender price is still unknown, which is OK because HEMRAJ is dropped (D-9).
+- **BGH → BDMS:** ? The Bangkok Post article is paywalled. Wikipedia was given as a second try.
+  - The date doesn't change the backtest: Yahoo's BDMS series already covers 2012 → today.
+- **TUF → TU:** ✘ the Thai Union IR link is dead. Two new links were added (EGM 2015 invitation, Thai Union history).
+- **BIGC:** not checked yet.
+
+### Step 6: Link checks, second batch
+- **BIGC:** ✔ (Ikkyu). The sources only give the tender offer as "at most 252.88 baht"; the final price
+  is unknown. OK, because BIGC is dropped (D-9).
+- **TUF → TU:** none of the links opened for Ikkyu.
+  - Claude tested them: the two added links return 404 (dead) and were removed.
+  - The original Thai Union IR link works from the command line, and its text says:
+    "Effective 23rd September 2015, the new stock ticker symbol of 'TUF' will be changed to 'TU'."
+  - ✔ by Claude, marked as such. It probably didn't load in Ikkyu's browser for a site reason.
+  - Backtest impact: none. Yahoo's TU series covers 2012 → today.
+
+### Step 7: Link checks, third batch (Ikkyu)
+- **GLOW:** ✔ confirmed.
+- **ROBINS:** ✔ confirmed: 66.50 baht per share, paid in CRC shares.
+  - Extra from The Nation: ROBINS closed at 63.75 baht that Tuesday morning (+3.50, +5.81%).
+  - So the offer was about 4% above the market price.
+
+### Step 8: Link checks, last batch (Ikkyu)
+- ✔ INTUCH (1.69335, last trading 20 Mar 2025), GULF (1.02974, new GULF from 3 Apr 2025),
+  DTAC, MAKRO, PS, ESSO.
+- **Totals:** 11 rows ✔ and 1 `?` (BGH's rename date: paywalled source, no effect on the backtest).
+- 12-stock table box ticked in SCHEDULE.md. Next: PLAN.md.
