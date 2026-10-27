@@ -108,3 +108,8 @@ One entry per step: what was done, what was found, what it means.
   DTAC, MAKRO, PS, ESSO.
 - **Totals:** 11 rows ✔ and 1 `?` (BGH's rename date: paywalled source, no effect on the backtest).
 - 12-stock table box ticked in SCHEDULE.md. Next: PLAN.md.
+
+### Step 9: PLAN.md frozen (Ikkyu)
+- Written by Ikkyu. Claude converted it from RTF to Markdown (formatting only).
+  The raw first draft is kept in `notes/Raw_PLAN.md`.
+- Committed as `dc0cd4a` on 27 Oct at 16:59, before any backtest code exists.
