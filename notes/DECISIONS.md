@@ -53,3 +53,28 @@ Ikkyu wrote `audit.py` himself from a description in words, with hints, without 
 version. Its output matches Claude's exactly (72 rows; same 12 no-data and 16 late-start stocks), so
 Claude's version was deleted (still in Git history). Supersedes the authorship line of D-7: all code in
 the project is written by Ikkyu; Claude explains and reviews.
+
+## D-9: The 8 stocks with no prices are dropped (2026-10-27)
+BIGC, HEMRAJ, GLOW, ROBINS, DTAC, PS, ESSO and MAKRO have no daily prices from 2012 until their event,
+in Yahoo or in the Mendeley dataset (see `notes/RESEARCH_LOG.md`, steps 1–3). Without prices they
+can't be held month by month, so "cashed out at the takeover price" (D-7) can't be run.
+- **Headline rule changes to "dropped":** the 2012 list is the 2012 stocks that have prices.
+  The 8 are left out from the start, and the money is split among the others.
+- **Bias, stated in advance:** the direction is unknown. These 8 were mostly **taken over**
+  (often at a premium), not failures, so dropping them may remove winners as well as losers.
+  This is not the same as the GM case in the US study.
+- Supersedes the bought-out rule of D-7. The renames (BGH → BDMS, TMB → TTB, TUF → TU) are unaffected.
+- SET's paid data (USD 400 per year of data) would fix this; it's noted as future work.
+
+## D-10: Mendeley dataset used for INTUCH and old GULF (2026-10-27)
+Source: Bui Thanh Khoa & Tran Trong Huynh (2025), "Regional Asymmetry in Financial Markets Pricing of
+Skewness Risk in the Thai Stock Market", Mendeley Data, DOI 10.17632/gybmm9t3mr.1, CC BY 4.0.
+- File `data/external/data1_THA.csv` (238.5 MB, not in Git; SHA-256 0cb504f42206604bf7f8a149a70098c4b2bef10bcfe83a4827c804327f1890f7).
+- It is Yahoo data (PTT matches our cache exactly), frozen on 2025-03-14.
+- **INTUCH** (2012 list): prices 1995 → 2025-03-14; then swapped into new GULF at 1 INTUCH → 1.69335.
+- **Old GULF** (2026 list): prices 2017-12-06 → 2025-03-14; then 1 old GULF → 1.02974 new GULF
+  (Yahoo, from 2025-04-03).
+- This removes most of the GULF bias in D-7. TIDLOR's pre-2025 years are still missing
+  (Ngern Tid Lor isn't in the file).
+- **BANPU** (both lists) also has a full series in Mendeley, but it disagrees with Yahoo on shared days
+  (return correlation 0.40). Not used until Thursday's data check settles which one is right.
