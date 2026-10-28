@@ -40,15 +40,25 @@ def load_close(symbol):
 bothx = hold_2012 | set_2026
 bothx.add("TDEX")
 bothx.remove("INTUCH")
-
 closes = {}
 for symbol in sorted(bothx):
     closes[symbol] = load_close(symbol)
 
 prices = pd.concat(closes, axis=1)
-
-
 print(prices.shape) 
 print(closes["PTT"].tail())
 
+mendeley=pd.read_csv("data/external/data1_THA.csv",
+                     parse_dates=["Date"])
 
+def load_mendeley(symbol):
+    mask = mendeley["id"] == symbol + ".BK"
+    df = mendeley[mask].set_index("Date")
+    return df["Aclose"]
+
+print(len(load_mendeley("INTUCH")))
+
+intuch = load_mendeley("INTUCH")
+old_gulf = load_mendeley("GULF")
+
+print(len(old_gulf))
