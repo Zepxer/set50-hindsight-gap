@@ -113,3 +113,14 @@ One entry per step: what was done, what was found, what it means.
 - Written by Ikkyu. Claude converted it from RTF to Markdown (formatting only).
   The raw first draft is kept in `notes/Raw_PLAN.md`.
 - Committed as `dc0cd4a` on 27 Oct at 16:59, before any backtest code exists.
+
+## 28 Oct: found while building backtest.py
+
+### Step 10: INTUCH's special dividend may be missing from Mendeley's Aclose (for Thursday's checks)
+- INTUCH fell from 80.75 to 76.25 on **2025-03-12**: −4.50 baht (−5.6%), exactly the 4.50-baht special dividend.
+- Mendeley's `Aclose` equals `Close` on both days, so that dividend is **not** adjusted for.
+  The backtest would show a fake −5.6% day for INTUCH.
+- Size: INTUCH is 1 of 42 stocks, so about −0.13% for the 2012 list in March 2025. Small, but it's a known error.
+- To decide on Thursday (Ikkyu): add the 4.50 back on the ex-date, or leave it and disclose it.
+  Either way, write it in `notes/DATA_CHECKS.md`.
+- Chain check: INTUCH's last close of 77.00 ÷ 1.69335 = 45.47 vs new GULF's first close of 46.19. Consistent.

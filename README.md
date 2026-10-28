@@ -24,7 +24,7 @@ Claude explains and reviews.
 | 2 | ✅ | Download prices, audit missing data |
 | 2.5 | ✅ | Research the 12 missing stocks; Mendeley check; `PLAN.md` frozen (27 Oct) |
 | 3.0 | ✅ | Write my own `audit.py` (matches the original exactly) |
-| 3.1 | 🟡 | `backtest.py`: load prices into one table (renames ✅, drops ✅, prices ⬜, INTUCH/GULF chains ⬜) |
+| 3.1 | ✅ | `backtest.py`: one price table, 3482 days × 61 stocks (renames, drops, INTUCH/GULF chains) |
 | 3.2 | ⬜ | Monthly returns and equal-weight portfolios |
 | 3.3 | ⬜ | Trading costs (0.15%) at each rebalance |
 | 3.4 | ⬜ | Scorecard: CAGR, Sharpe, max drawdown, t-statistic |
