@@ -34,7 +34,7 @@ How much higher is the yearly return of today's SET50, tested backwards, than th
 - Eight stocks dropped under the headline rule have an unknown bias direction. Their exclusion may raise or lower the measured return gap; the direction will not be assumed in advance.
 - SCB and BANPU are included in both lists. Their missing historical data may affect both portfolios, but the effects are not guaranteed to cancel. BANPU remains subject to Thursday's data check.
 - The swaps DTAC → TRUE and PS → PSH are handled under the dropped rule rather than cashed out at their swap values.
-- Swap: Old TRUE → new TRUE, Old GULF → new GULF, INTUCH → new GULF
+- Swap: Old TRUE → new TRUE at 0.60018, Old GULF → new GULF at 1.02974, INTUCH → new GULF at 1.69335
 - These limitations will be disclosed alongside the results. No bias adjustment will be invented after seeing the results.
 
 

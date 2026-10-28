@@ -31,4 +31,12 @@ print(len(hold_2012 & set_2026))
 print(len(hold_2012 - set_2026))
 print(len(set_2026 - hold_2012))
 
+def load_close(symbol):
+    path = f"data/cache/{symbol}.csv"
+    table = pd.read_csv(path , 
+                        index_col=0, parse_dates=True)
+    return(table["Close"])
 
+print(load_close("PTT").tail())
+
+git add -A && git commit -m "backtest.py: load_close; PLAN.md: swap ratios"
