@@ -124,3 +124,11 @@ One entry per step: what was done, what was found, what it means.
 - To decide on Thursday (Ikkyu): add the 4.50 back on the ex-date, or leave it and disclose it.
   Either way, write it in `notes/DATA_CHECKS.md`.
 - Chain check: INTUCH's last close of 77.00 ÷ 1.69335 = 45.47 vs new GULF's first close of 46.19. Consistent.
+
+### Step 11: BANPU's Yahoo series has a second problem (for Thursday's checks)
+- Yahoo's BANPU **stops trading on 2026-08-11** (last close 14.6). After that there are only 2 empty rows
+  (2026-09-11 and 2026-10-22).
+- So BANPU has **no return** in the last months for both lists. Is this a suspension, a corporate action,
+  or a Yahoo error? To be found out.
+- Together with Step 3 (Mendeley vs Yahoo correlation 0.40) and its start in 2016, BANPU is the least
+  trustworthy series. Thursday decides: fix, use Mendeley, or drop it from both lists and disclose.
