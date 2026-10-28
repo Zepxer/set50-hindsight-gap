@@ -37,6 +37,18 @@ def load_close(symbol):
                         index_col=0, parse_dates=True)
     return(table["Close"])
 
-print(load_close("PTT").tail())
+bothx = hold_2012 | set_2026
+bothx.add("TDEX")
+bothx.remove("INTUCH")
 
-git add -A && git commit -m "backtest.py: load_close; PLAN.md: swap ratios"
+closes = {}
+for symbol in sorted(bothx):
+    closes[symbol] = load_close(symbol)
+
+prices = pd.concat(closes, axis=1)
+
+
+print(prices.shape) 
+print(closes["PTT"].tail())
+
+
