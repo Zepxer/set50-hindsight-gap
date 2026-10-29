@@ -45,8 +45,7 @@ for symbol in sorted(bothx):
     closes[symbol] = load_close(symbol)
 
 prices = pd.concat(closes, axis=1)
-print(prices.shape) 
-print(closes["PTT"].tail())
+
 
 mendeley=pd.read_csv("data/external/data1_THA.csv",
                      parse_dates=["Date"])
@@ -56,12 +55,8 @@ def load_mendeley(symbol):
     df = mendeley[mask].set_index("Date")
     return df["Aclose"]
 
-print(len(load_mendeley("INTUCH")))
-
 intuch = load_mendeley("INTUCH")
 old_gulf = load_mendeley("GULF")
-
-print(len(old_gulf))
 
 new_gulf = prices["GULF"].dropna()
 after_INTUCH = new_gulf * 1.69335
@@ -70,20 +65,54 @@ after_GULF = new_gulf * 1.02974
 prices["INTUCH"] = pd.concat([intuch, after_INTUCH])
 prices["GULF"] = pd.concat([old_gulf, after_GULF])
 
-print(prices["GULF"].first_valid_index())
+
 
 monthly = prices.resample("ME").last()
-print(monthly)
 
 returns = monthly.pct_change()
-print(returns)
+
+return_2012 = returns[sorted(hold_2012)]
+return_2026 = returns[sorted(set_2026)]
+port_2012 = return_2012.mean(axis=1)
+port_2026 = return_2026.mean(axis=1)
+
+port_2012 = port_2012.dropna()
+port_2026 = port_2026.dropna()
+
+growth_2012 = (1 + port_2012).prod()
+growth_2026 = (1 + port_2026).prod()
+#CAGR_2012 = growth_2012 ** (12 / len(port_2012)) -1
+#CAGR_2026 = growth_2026 ** (12 / len(port_2026)) -1
+
+
+def cagr(port):
+    growth = (1 + port).prod()
+    months = len(port)
+    return growth ** (12 / months) -1
 
 
 
-port_2012 = returns[sorted(hold_2012)]
-port_2026 = returns[sorted(set_2026)]
+def sharpe(port):
+    average = port.mean()
+    standard_deviation = port.std()
+    return (average / standard_deviation) * (12 ** 0.5)
 
-port_2012a = port_2012.mean(axis=1)
-port_2026a = port_2026.mean(axis=1)
-print("XX")
-print(port_2012.iloc[1], port_2026.iloc[1])
+
+
+def max_drawdown(port):
+    growth_line = (1 + port).cumprod()
+    peak = (growth_line).cummax()
+    return (growth_line / peak -1).min()
+
+
+diff = port_2026 - port_2012
+avg = diff.mean()
+std = diff.std()
+n = len(diff)
+
+standard_error = std / (n ** 0.5)
+t_stats = avg / standard_error
+percent_ci1 = avg - (1.96 * standard_error)
+percent_ci2 = avg + (1.96 * standard_error)
+
+print(f"Gap: {avg *12:.2%}/yr, t_stats = {t_stats:.2f}, 95%_ci[{percent_ci1 *12:.2%}, { percent_ci2 *12:.2%}] ")
