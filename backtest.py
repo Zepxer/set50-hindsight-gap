@@ -105,7 +105,34 @@ def max_drawdown(port):
     return (growth_line / peak -1).min()
 
 
-diff = port_2026 - port_2012
+
+
+def net_returns(returns, port):
+    stocks_held = returns.iloc[1:]
+    held = stocks_held.notna()
+    count = held.sum(axis = 1)
+    weight = held.div(count, axis=0)
+
+    filled_stocks = stocks_held.fillna(0)
+    grown = weight * (1+ filled_stocks)
+    drift = grown.div(1+port, axis = 0)
+
+    last_drift = drift.shift(1)
+    last_driftx = last_drift.fillna(0)
+
+    turnover = ((weight - last_driftx).abs()
+                .sum(axis = 1))
+
+
+    cost_each_month = 0.0015 * turnover
+    net_portfolio = port - cost_each_month
+    return net_portfolio
+
+
+
+net_2012 = net_returns(return_2012, port_2012)
+net_2026 = net_returns(return_2026, port_2026)
+diff = net_2026 - net_2012
 avg = diff.mean()
 std = diff.std()
 n = len(diff)
@@ -116,3 +143,8 @@ percent_ci1 = avg - (1.96 * standard_error)
 percent_ci2 = avg + (1.96 * standard_error)
 
 print(f"Gap: {avg *12:.2%}/yr, t_stats = {t_stats:.2f}, 95%_ci[{percent_ci1 *12:.2%}, { percent_ci2 *12:.2%}] ")
+
+
+
+
+

@@ -11,8 +11,6 @@ list_2026 = pd.read_csv("data/set50_2026H2.csv", comment="#")
 
 
 
-
-
 symbols_2012 = list_2012["symbol"].tolist()
 symbols_2026 = list_2026["symbol"].tolist()
 
