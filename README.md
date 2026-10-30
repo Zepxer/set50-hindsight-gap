@@ -14,6 +14,8 @@ Claude explains and reviews.
 | `sources/` | `SOURCES.md` (every outside fact and where it came from) and `wayback/` (saved SET pages) |
 | `notes/` | `DECISIONS.md` (every choice and why), `RESEARCH_LOG.md` (every research step), `SCHEDULE.md`, `quantz-lessons.md` |
 | `PLAN.md` | The frozen plan, committed before any backtest code |
+| `backtest.py` | The backtest: prints the headline and scorecard (written by Ikkyu) |
+| `checks.py` | The data checks (written by Ikkyu) |
 | `audit.py` | Downloads both lists and records missing data (written by Ikkyu from a description, 26 Oct; replaced Claude's first version) |
 
 ## Plan
@@ -28,9 +30,11 @@ Claude explains and reviews.
 | 3.2 | ✅ | Monthly returns and equal-weight portfolios (172 months) |
 | 3.3 | ✅ | Trading costs (0.15%) at each rebalance |
 | 3.4 | ✅ | Scorecard: CAGR, Sharpe, max drawdown, t-statistic; headline printed |
-| 4 | ⬜ | Checks (the hardest step) |
+| 4 | 🟡 | Checks (`notes/DATA_CHECKS.md`): BANPU, TRUE, INTUCH, renames, chains, rerun done; dividends, stock count, re-download, 2012 news left |
+| 4.5 | ⬜ | Sensitivity: 2026 list limited to July 2012 stocks; quarterly rebalancing |
 | 5 | ⬜ | `charts.py` |
-| 6–7 | ⬜ | Portfolio pages |
+| 5.5 | ⬜ | `notes/RESULTS.md` |
+| 6–7 | ⬜ | Portfolio pages (SET50 is the flagship, decided 29 Oct) |
 
 ## Run
 

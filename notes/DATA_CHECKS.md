@@ -45,11 +45,22 @@ including the ones that found nothing.
 - Evidence: 0.9341 = 1 − 6.54 ÷ 99.25. GULF also fell 5.58% on 12 March, compared with INTUCH's 5.6% decline.
 - Did: Kept the original data unchanged (D-13).
 - Did not do: Did not apply another dividend adjustment.
+- Also checked: −20% on 21 Dec 2015 looks real. ADVANC fell about 19% that day after the 900MHz auction; INTUCH is its largest shareholder.
 
 ## 5. Rerun test
 - Did: Ran backtest.py twice on 30 Oct.
 - Found: Identical output (3.97%, t = 3.98).
 - Limit: Same saved files only. It does not re-download from Yahoo.
+
+## 6. Renames (TTB, BDMS, TU)
+- Methods: Listed each stock's 4 largest daily moves, and printed TTB around 7 May 2021.
+- Found: No fake jump at the rename dates. TTB stays near 0.846 on 5–11 May 2021. Most of the largest moves are in the COVID crash period (Feb–Mar 2020).
+- Limit: BDMS's rename date is unconfirmed. Not investigated: BDMS 2020-11-10 (12.4%), BDMS 2013-01-17 (10.2%), TU 2021-05-10 (10.5%), TU 2015-08-13 (9.4%).
+
+## 7. Chains (INTUCH, GULF)
+- Methods: Compared prices on 14 Mar and 3 Apr 2025, across the swap.
+- Found: INTUCH 77.00 → 78.22 (+1.59%). GULF 46.75 → 47.57 (+1.75%). Similar moves, as expected for two companies merging into one, with no sign of a wrong ratio.
+- Limit: The two ratios come from news reports, and the 4 trading days before the suspension are missing from Mendeley.
 
 ## Not checked
 - 10 stocks could not be compared. ( AWC, CRC, GULF, MRDIYT, OR, SCGP, TDEX, TIDLOR, TLI, TTB ), not in Mendeley, or too little overlap.
