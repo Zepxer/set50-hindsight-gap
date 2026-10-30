@@ -168,3 +168,9 @@ One entry per step: what was done, what was found, what it means.
 - Mendeley's `Aclose` already reflects it: Aclose/Close reaches 1.0 on 2025-02-19.
 - **So there is nothing to fix.** Adding 4.50 back would have put a fake +5.9% into INTUCH.
   Ikkyu's "fix" decision was based on Claude's wrong premise and is withdrawn.
+
+### Step 16: The Mendeley comparison can't catch shared errors (TRUE proves it)
+- TRUE **passed** the comparison in Step 13 (correlation 1.0000 over 3,096 days), even though it has the fake jump.
+- Reason: Mendeley's TRUE has the same jump (5.10 → 8.60 on 2023-03-03), because both come from Yahoo.
+- So a high correlation means "same series as Yahoo", not "correct". TRUE's jump was only found by looking at
+  the merger date directly. The comparison finds wrong series, not bad data.
