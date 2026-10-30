@@ -26,10 +26,7 @@ dropped = {"BIGC", "HEMRAJ", "GLOW",
          "DTAC", "PS", "ESSO", "MAKRO", "ROBINS"}
 
 hold_2012 = new_set2012 - dropped
-print(len(hold_2012 & set_2026))
 
-print(len(hold_2012 - set_2026))
-print(len(set_2026 - hold_2012))
 
 def load_close(symbol):
     path = f"data/cache/{symbol}.csv"
@@ -65,7 +62,10 @@ after_GULF = new_gulf * 1.02974
 prices["INTUCH"] = pd.concat([intuch, after_INTUCH])
 prices["GULF"] = pd.concat([old_gulf, after_GULF])
 
+real_BANPU = load_mendeley("BANPU")
+prices["BANPU"] = real_BANPU
 
+prices.loc["2023-03-03":, "TRUE"] *= 0.60018
 
 monthly = prices.resample("ME").last()
 
@@ -142,8 +142,16 @@ t_stats = avg / standard_error
 percent_ci1 = avg - (1.96 * standard_error)
 percent_ci2 = avg + (1.96 * standard_error)
 
-print(f"Gap: {avg *12:.2%}/yr, t_stats = {t_stats:.2f}, 95%_ci[{percent_ci1 *12:.2%}, { percent_ci2 *12:.2%}] ")
 
+print(
+    f"Gap: {avg * 12:.2%}/yr, "
+    f"t-stat = {t_stats:.2f}, "
+    f"95% CI [{percent_ci1 * 12:.2%}, {percent_ci2 * 12:.2%}]"
+)
+
+print(f"CAGR    2012: {cagr(net_2012):.2%}   2026: {cagr(net_2026):.2%}")
+print(f"Sharpe  2012: {sharpe(net_2012):.2f}    2026: {sharpe(net_2026):.2f}")
+print(f"Max DD  2012: {max_drawdown(net_2012):.2%}  2026: {max_drawdown(net_2026):.2%}")
 
 
 

@@ -78,3 +78,17 @@ Skewness Risk in the Thai Stock Market", Mendeley Data, DOI 10.17632/gybmm9t3mr.
   (Ngern Tid Lor isn't in the file).
 - **BANPU** (both lists) also has a full series in Mendeley, but it disagrees with Yahoo on shared days
   (return correlation 0.40). Not used until Thursday's data check settles which one is right.
+
+## D-11: BANPU uses Mendeley; Yahoo's series is BPP (2026-10-30)
+Yahoo's `BANPU.BK` is BPP's price history (`notes/RESEARCH_LOG.md`, step 12). Ikkyu chose option A before seeing
+the effect on the headline: use Mendeley's real BANPU to 2025-03-14, then stop holding it, under PLAN.md's rule
+"held only while usable price data are available". BANPU is in both lists.
+
+## D-12: TRUE's merger jump removed (2026-10-30)
+Prices from 2023-03-03 are multiplied by 0.60018, the swap ratio already in PLAN.md (RESEARCH_LOG step 14).
+This removes a fake +68.6% day.
+
+## D-13: No INTUCH dividend fix (2026-10-30)
+Claude's Step 10 was wrong: the 6.54-baht special dividend went XD on 2025-02-19 and is already in Mendeley's
+Aclose (ratio 0.9341 = 1 − 6.54/99.25). The −5.6% on 2025-03-12 is a real price move; GULF fell −5.6% that day too.
+Ikkyu's earlier "fix" choice is withdrawn because its premise was false (RESEARCH_LOG step 15).

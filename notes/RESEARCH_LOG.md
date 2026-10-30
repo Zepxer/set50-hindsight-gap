@@ -132,3 +132,39 @@ One entry per step: what was done, what was found, what it means.
   or a Yahoo error? To be found out.
 - Together with Step 3 (Mendeley vs Yahoo correlation 0.40) and its start in 2016, BANPU is the least
   trustworthy series. Thursday decides: fix, use Mendeley, or drop it from both lists and disclose.
+
+## 30 Oct: data checks, piece A
+
+### Step 12: Yahoo's "BANPU" is the wrong company
+- **Finding:** Yahoo's `BANPU.BK` from 2016-10-28 to mid-2026 is really the price history of **BPP (Banpu Power)**,
+  Banpu's subsidiary.
+  - Daily returns vs Mendeley's `BPP.BK`: correlation **1.0000** over 2,037 days (ratio constant at 0.902).
+  - Vs Mendeley's real `BANPU.BK`: only 0.3962.
+  - 2016-10-28, the first date of Yahoo's series, is BPP's first date in Mendeley too.
+- **Likely cause:** BANPU and BPP amalgamated into a new company in 2026, keeping the ticker BANPU
+  (1 BANPU → 0.38242 new, 1 BPP → 0.80208 new). Yahoo appears to have attached BPP's history to the ticker.
+  The cause is inferred; the mismatch itself is measured.
+- This explains all three BANPU problems: the 2016 start, the 0.40 correlation, and the break in Aug 2026.
+- **So Mendeley's BANPU is the real one** (2000 → 2025-03-14). It's in both lists.
+- **Decision:** to be made by Ikkyu **before** looking at the effect on the headline.
+- Sources: [Daol broker note](https://www.daolsecurities.co.th/assets/d61c73b7-b218-42da-8ef7-6c96d0eb349d/BANPU_260227_CR_DAOL.pdf?quality=75),
+  [Kaohoon: BANPU redebuts](https://www.kaohooninternational.com/markets/587876).
+
+### Step 13: Every Yahoo series compared with Mendeley
+- 50 stocks have enough shared days. Correlation of daily returns: all ≥ 0.998 except BANPU (WHA 0.9984).
+- So **BANPU is the only wrong-company series among the 50 that could be compared**.
+- Not comparable (not in Mendeley, or too little overlap): AWC, CRC, GULF, MRDIYT, OR, SCGP, TDEX, TIDLOR, TLI, TTB.
+
+### Step 14: TRUE has a fake +68.6% jump on 2023-03-03
+- Yahoo's TRUE goes from 4.873 to 8.217 on the day the merged company started trading. The old prices weren't adjusted.
+- Real value: 8.217 × 0.60018 = 4.93, so the real move was about +1.2%.
+- TRUE is in both lists, so both portfolios get a fake boost that month. PLAN.md already has the rule (0.60018).
+
+### Step 15: Correction to Step 10 (INTUCH dividend): Claude's inference was wrong
+- Step 10 said the −4.50 baht on 2025-03-12 was the special dividend, and that Mendeley hadn't adjusted for it.
+  That was inferred from the amount matching a 4.50 forecast. It was never checked against a source.
+- The actual special dividend was **6.54 baht, XD 19 Feb 2025, paid 4 Mar 2025**
+  ([Kaohoon](https://www.kaohoon.com/news/731890)).
+- Mendeley's `Aclose` already reflects it: Aclose/Close reaches 1.0 on 2025-02-19.
+- **So there is nothing to fix.** Adding 4.50 back would have put a fake +5.9% into INTUCH.
+  Ikkyu's "fix" decision was based on Claude's wrong premise and is withdrawn.
