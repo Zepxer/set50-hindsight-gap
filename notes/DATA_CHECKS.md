@@ -1,6 +1,6 @@
-## Data Check
+# Data Check
 
-Purpose: Can the Headline trustworthy? Every check,
+Purpose: Can the headline be trusted? Every check,
 including the ones that found nothing.
 
 ## Summary:
@@ -46,13 +46,19 @@ including the ones that found nothing.
 - Did: Kept the original data unchanged (D-13).
 - Did not do: Did not apply another dividend adjustment.
 
+## 5. Rerun test
+- Did: Ran backtest.py twice on 30 Oct.
+- Found: Identical output (3.97%, t = 3.98).
+- Limit: Same saved files only. It does not re-download from Yahoo.
+
 ## Not checked
-- 10 stocks could not be compared due to limited shared data. ( AWC, CRC, GULF, MRDIYT, OR, SCGP, TDEX, TIDLOR, TLI, TTB ), not in Mendeley, or too little overlap.
+- 10 stocks could not be compared. ( AWC, CRC, GULF, MRDIYT, OR, SCGP, TDEX, TIDLOR, TLI, TTB ), not in Mendeley, or too little overlap.
 - Data independence: Mendeley is not an independent source of truth; TRUE contains the same Yahoo price jump.
 - Nothing after 14 March 2025 could be compared because Mendeley's data ends there.
-- The explanation that Yahoo shows BPP's history is infered, not confirmed.
+- The explanation that Yahoo shows BPP's history is inferred, not confirmed.
 - BANPU's last 19 months are missing from both lists.
 - BANPU and TRUE correction effects were measured only together.
-- Piece B checks: Not done yet.
+- Piece B checks: Not done yet: renames, chains, dividend spot-checks, stock count..
+
 
 
