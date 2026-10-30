@@ -174,3 +174,16 @@ One entry per step: what was done, what was found, what it means.
 - Reason: Mendeley's TRUE has the same jump (5.10 → 8.60 on 2023-03-03), because both come from Yahoo.
 - So a high correlation means "same series as Yahoo", not "correct". TRUE's jump was only found by looking at
   the merger date directly. The comparison finds wrong series, not bad data.
+
+## 31 Oct: data checks, continued
+
+### Step 17: Dividend spot-checks (Ikkyu, with ChatGPT search)
+Yahoo's `Dividends` column vs SET announcements. All three match on amount and XD date.
+- **PTT:** 1.20 baht, XD 2024-02-29, record 2024-03-01, paid 2024-04-30.
+  [SET](https://www.set.or.th/en/market/news-and-alert/newsdetails?id=86033200&symbol=PTT),
+  [InfoQuest](https://www.infoquest.co.th/news/2024-iqpf0iq6ds9s9vven5bm40zzs5wetedb)
+- **KBANK:** 6.00 baht, XD 2024-04-22, record 2024-04-23, paid 2024-05-10; announced 2024-02-29.
+  [SET](https://www.set.or.th/en/market/news-and-alert/newsdetails?id=86700700&symbol=KBANK)
+- **ADVANC:** 4.87 baht, XD 2024-08-19, record 2024-08-20, paid 2024-09-03. **Link still needed.**
+- **Limit:** only 3 dividends out of many, all from 2024, all large companies. It supports Yahoo's dividend data
+  but doesn't prove it for every stock and year. Older or smaller stocks weren't tested.
