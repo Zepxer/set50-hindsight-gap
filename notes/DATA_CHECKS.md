@@ -1,9 +1,9 @@
-Data Check
+## Data Check
 
 Purpose: Can the Headline trustworthy? Every check,
 including the ones that found nothing.
 
-Summary:
+## Summary:
 
 1. BANPU: Yahoo used the wrong company (BPP); replaced it with real BANPU data, ending 14 Mar 2025.
 2. Stock Comparison: Compared 50 stocks; BANPU was the only incorrect series.
@@ -22,6 +22,7 @@ Summary:
 ## 1. BANPU 
 - Found: Yahoo's BANPU series was actually tracking BPP.
 - Methods: Compared daily returns and price ratios.
+- 1.0000 with BPP vs 0.3962 with real BANPU, over 2,037 days
 - Did: Replaced Yahoo's data with Mendeley's real BANPU data and stopped holding it after 14 March 2025 (D-11).
 - Did not do: Did not extend holdings beyond the last available real BANPU data.
 
@@ -46,10 +47,10 @@ Summary:
 - Did not do: Did not apply another dividend adjustment.
 
 ## Not checked
-- 10 stocks could not be compared due to limited shared data.
+- 10 stocks could not be compared due to limited shared data. ( AWC, CRC, GULF, MRDIYT, OR, SCGP, TDEX, TIDLOR, TLI, TTB ), not in Mendeley, or too little overlap.
 - Data independence: Mendeley is not an independent source of truth; TRUE contains the same Yahoo price jump.
 - Nothing after 14 March 2025 could be compared because Mendeley's data ends there.
-- The explanation that Yahoo shows BPP's history is not sure, unconfirmed.
+- The explanation that Yahoo shows BPP's history is infered, not confirmed.
 - BANPU's last 19 months are missing from both lists.
 - BANPU and TRUE correction effects were measured only together.
 - Piece B checks: Not done yet.
