@@ -173,10 +173,15 @@ def print_gap(returns_2012, returns_2026, label, periods):
     ci_lower = avg - 1.96 * standard_error
     ci_upper = avg + 1.96 * standard_error
 
+    gap_yearly = avg * periods
+    lower_yearly = ci_lower * periods
+    upper_yearly = ci_upper * periods
     print(
             f"{label}: Gap: {avg * periods:.2%}/yr, "
             f"t-stat = {t_stats:.2f}, "
             f"95% CI [{ci_lower * periods:.2%}, {ci_upper * periods:.2%}]")
+
+    return gap_yearly, lower_yearly, upper_yearly
 
 
 
