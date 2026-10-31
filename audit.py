@@ -27,7 +27,8 @@ def get_prices(symbol):
     if os.path.exists(path) :
         return pd.read_csv(path, index_col=0, parse_dates=True)
     else: 
-        table = yf.Ticker(f"{symbol}.BK").history(start="2012-07-02", auto_adjust=True)
+        table = yf.Ticker(f"{symbol}.BK").history(start="2012-07-02",
+                                                  end = "2026-10-23", auto_adjust=True)
         if len(table) > 0:
             table.index = table.index.tz_localize(None)
         table.to_csv(path)

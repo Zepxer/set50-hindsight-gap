@@ -38,3 +38,4 @@ for symbol in sorted(bothx):
     shared = pd.concat({"new": new, "old": old}, axis=1).dropna()
     biggest = (shared["new"] / shared["old"] -1 ).abs().max()
     print(symbol, len(shared), biggest)
+

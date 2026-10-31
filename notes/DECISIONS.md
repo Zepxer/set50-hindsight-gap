@@ -92,3 +92,16 @@ This removes a fake +68.6% day.
 Claude's Step 10 was wrong: the 6.54-baht special dividend went XD on 2025-02-19 and is already in Mendeley's
 Aclose (ratio 0.9341 = 1 − 6.54/99.25). The −5.6% on 2025-03-12 is a real price move; GULF fell −5.6% that day too.
 Ikkyu's earlier "fix" choice is withdrawn because its premise was false (RESEARCH_LOG step 15).
+
+## D-14: Sensitivity 1 keeps SCB, 36 stocks (2026-10-31)
+Ikkyu chose this before any Sensitivity 1 returns were run. PLAN.md says "stocks trading in July 2012", and SCB was,
+though its price data only starts 2022-04-20. Under PLAN.md's rule it's held only while usable prices exist, so from 2022.
+The check is meant to remove later listings, and SCB isn't one. The other 35 have a price in July 2012; 14 don't and are left out:
+AWC, COM7, CRC, GPSC, GULF, MRDIYT, MTC, OR, OSP, SCGP, TFG, TIDLOR, TLI, WHA.
+**Not checked:** BEM was formed from BECL and BMCL around the end of 2015, but Yahoo shows prices from 2012, probably a
+predecessor's history. It stays in, and it's in the 2026 list for the headline too.
+
+## D-15: Sensitivity 2 uses quarters ending Jan, Apr, Jul, Oct (2026-10-31)
+Ikkyu chose this before any quarterly returns were run. `resample("QE-OCT")` gives 57 quarterly returns from
+2012-07-31 to 2026-10-31, the same start and end as the monthly test, and keeps BANPU's last price.
+Calendar quarters would start returns in Oct 2012 and cut the last quarter short.

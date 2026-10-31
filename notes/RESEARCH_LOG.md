@@ -210,3 +210,61 @@ Yahoo's `Dividends` column vs SET announcements. All three match on amount and X
 - Largest difference in any stock: 0.00008% (IVL, rounding). 0 of 60 exceed 0.1%.
 - So the saved data is what Yahoo serves today, and anyone rerunning the download gets the same prices.
 - **Limit:** this proves the data can be reproduced, not that it's correct. Yahoo's BANPU still matches our saved BPP series.
+
+### Step 20: ADVANC dividend and THAI links (found by Claude, confirmed by Ikkyu, 31 Oct)
+- **ADVANC:** 4.87 baht, XD 2024-08-19.
+  [Trinity](https://www.trinitythai.com/Upload/Research/ADVANC_1732869677_34714.pdf),
+  [InnovestX](https://www.innovestx.co.th/knowledge-hub/detail/research-stock-company-update/advance-earnings-2q24),
+  [Panphol](https://aio.panphol.com/stock/ADVANC/dividend).
+- **THAI:** returned to trading 2025-08-04: 3.32 before suspension, opened 10.50, closed 10.30.
+  [Thai Airways](https://www.thaiairways.com/en-th/content/news-and-announcements/thai-airways-resumes-trading-on-the-stock-exchange-on-4-august),
+  [The Nation (216%)](https://www.nationthailand.com/business/corporate/40053575),
+  [The Nation (SET)](https://www.nationthailand.com/business/trading-investment/40052922).
+  The jump is real, not a Yahoo error. What an old share became in the restructuring isn't confirmed by a filing.
+- **SET archive found:** official files for H2 2012 and the revised H2 2026 list, on SET's constituents page.
+
+### Step 21: Both lists checked against SET's own files (found by Claude, confirmed by Ikkyu, 31 Oct)
+- **2012 list:** SET's file "For calculating the index during July 1, 2012 - December 31, 2012", sheet SET50-EN.
+  50 of 50 names match `data/set50_2012H2.csv`, no differences. The file's 5 replacement names (KK, KSL, LPN, STA, TTW)
+  are a separate reserve list and aren't constituents. Our list came from Wayback snapshots of SET's page (Sep and Nov 2012),
+  so the official file is a real second look.
+  [SET file](https://media.set.or.th/set/Documents/2021/Dec/SET50_100_H2_2012-TH.xls)
+- **2026 list:** SET's revised PDF "For calculating the index during July 1 - December 31, 2026, Update on August 3, 2026".
+  50 of 50 names match `data/set50_2026H2.csv`, no differences.
+  [SET file](https://media.set.or.th/set/Documents/2026/Jul/SET50_SET100_H2_2026_revise.pdf),
+  [SET constituents page](https://www.set.or.th/en/market/information/securities-list/constituents-list-set50-set100)
+- **One revision:** the PDF's only change is Inclusion BANPU, Exclusion BANPUU, both named Banpu Public Company Limited.
+  This fits the BANPU/BPP amalgamation (Step 12). The new company trades as BANPU, first trading 4 Aug 2026.
+  [Kaohoon](https://www.kaohooninternational.com/markets/587876),
+  [Mitihoon](https://www.mitihoon.com/2026/08/03/665460/).
+  The temporary BANPUU ticker itself is thinly sourced outside SET's PDF.
+- **Effect on the backtest:** none. Same company, and D-11 already stops holding BANPU after 2025-03-14.
+- **Limits:** we read the August revision, not the original July file; the original list is inferred from the one stated change.
+  Replacements made during H2 2012 wouldn't show in the 2012 file, though the Sep and Nov 2012 snapshots show the same 50.
+  This checks who was on the lists, not their prices. Replaces audit #12's search for 2012 news.
+
+### Step 22: TDEX added to the scorecard (Ikkyu's code, 31 Oct)
+- **Result:** CAGR 5.70%, Sharpe 0.44, max drawdown −30.20%, on the same 171 months as both lists, with no missing months.
+- **Data look:** no gaps over 10 days. The largest daily moves are all in March–April 2020 (largest −10.29% on 2020-03-12).
+- **Costs:** no trading cost is taken from TDEX because it's a single fund that is held, while both lists pay 0.15%.
+- **Not comparable as skill:** TDEX is below the 2012 list, but the 2012 list is equal-weight and has 8 stocks dropped.
+- **Not checked:** whether Yahoo's adjusted TDEX prices include every fund distribution.
+
+### Step 23: Rerun setup (Ikkyu, 31 Oct)
+- Added `requirements.txt` (pandas, yfinance, matplotlib pinned) and the install, audit and backtest commands to the README.
+- README records the Mendeley source, DOI, licence, save location and SHA-256. The saved file's hash matches.
+- **Reproducibility fix:** `audit.py` had no end date, so a fresh download would run past 22 Oct and change the results.
+  Added `end="2026-10-23"` (exclusive), matching the re-download test. Saved results didn't change.
+
+### Step 24: Sensitivity 1, stocks trading in July 2012 (Ikkyu's code, 31 Oct)
+- 36 stocks (D-14), 171 months. Holds 35 at both ends: BANPU but no SCB at the start, SCB but no BANPU at the end.
+- **Result:** gap 3.00%/yr, t = 4.40, 95% CI [1.66%, 4.34%]. Headline stays 3.97%, t = 3.98.
+- The gap falls about 1 point a year without the 14 later listings. This is an estimate, not the exact effect of those
+  stocks, because removing them also changes every other stock's equal weight.
+- The gap calculation is now a function, `print_gap`, tested by reproducing the headline exactly.
+
+### Step 25: Sensitivity 2, quarterly rebalancing (Ikkyu's code, 31 Oct)
+- Quarters end Jan, Apr, Jul, Oct (D-15). 57 quarterly returns from 2012-07-31 to 2026-10-31, using both full lists.
+- **Result:** gap 3.75%/yr, t = 3.81, 95% CI [1.82%, 5.68%]. Headline stays 3.97%, t = 3.98.
+- Rebalancing frequency barely changes the gap. Noise in the yearly difference stays about the same (about 3.7%/yr vs 3.77%/yr).
+- `print_gap` now takes periods per year. `cagr` and `sharpe` still assume 12, so they aren't used on the quarterly series.

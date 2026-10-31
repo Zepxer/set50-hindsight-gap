@@ -130,29 +130,70 @@ def net_returns(returns, port):
 
 
 
-net_2012 = net_returns(return_2012, port_2012)
-net_2026 = net_returns(return_2026, port_2026)
-diff = net_2026 - net_2012
-avg = diff.mean()
-std = diff.std()
-n = len(diff)
-
-standard_error = std / (n ** 0.5)
-t_stats = avg / standard_error
-percent_ci1 = avg - (1.96 * standard_error)
-percent_ci2 = avg + (1.96 * standard_error)
 
 
-print(
-    f"Gap: {avg * 12:.2%}/yr, "
-    f"t-stat = {t_stats:.2f}, "
-    f"95% CI [{percent_ci1 * 12:.2%}, {percent_ci2 * 12:.2%}]"
-)
 
 print(f"CAGR    2012: {cagr(net_2012):.2%}   2026: {cagr(net_2026):.2%}")
 print(f"Sharpe  2012: {sharpe(net_2012):.2f}    2026: {sharpe(net_2026):.2f}")
 print(f"Max DD  2012: {max_drawdown(net_2012):.2%}  2026: {max_drawdown(net_2026):.2%}")
 
+tdex_returns = returns["TDEX"].loc[port_2012.index]
+
+cagr_tdex = cagr(tdex_returns)
+sharpe_tdex = sharpe(tdex_returns)
+maxdrawdown_tdex = max_drawdown(tdex_returns)
+
+print("TDEX")
+print(f"CAGR: {cagr_tdex:.2%}")
+print(f"Sharpe: {sharpe_tdex:.2f}")
+print(f"Max Drawdown: {maxdrawdown_tdex:.2%}")
+
+
+name_2026 = sorted(set_2026)
+july_2012 = monthly.loc["2012-07-31", name_2026]
+survivor = set(july_2012[july_2012.notna()].index)
+survivor.add("SCB")
+
+survivor_symbols = sorted(survivor)
+survivor_returns = returns[survivor_symbols]
+survivor_monthly= survivor_returns.mean(axis=1).dropna()
+net_survivor = net_returns(survivor_returns,survivor_monthly)
+
+
+
+def print_gap(returns_2012, returns_2026, label, periods):
+    diff = returns_2026 - returns_2012
+    avg = diff.mean()
+    std = diff.std()
+    n = len(diff)
+
+    standard_error = std / (n ** 0.5)
+    t_stats = avg / standard_error
+    ci_lower = avg - 1.96 * standard_error
+    ci_upper = avg + 1.96 * standard_error
+
+    print(
+            f"{label}: Gap: {avg * periods:.2%}/yr, "
+            f"t-stat = {t_stats:.2f}, "
+            f"95% CI [{ci_lower * periods:.2%}, {ci_upper * periods:.2%}]")
+
+
+
+print_gap(net_2012, net_2026, "Headline", 12)
+print_gap(net_2012, net_survivor, "Sensitivity 1", 12)
+
+quarterly_prices = prices.resample("QE-OCT").last()
+quarterly_returns = quarterly_prices.pct_change()
+
+return_2012_q = quarterly_returns[sorted(hold_2012)]
+port_2012_q = return_2012_q.mean(axis=1).dropna()
+net_2012_q = net_returns(return_2012_q, port_2012_q)
+
+return_2026_q = quarterly_returns[sorted(set_2026)]
+port_2026_q = return_2026_q.mean(axis=1).dropna()
+net_2026_q = net_returns(return_2026_q, port_2026_q)
+
+print_gap(net_2012_q, net_2026_q, "Sensitivity 2", 4)
 
 
 

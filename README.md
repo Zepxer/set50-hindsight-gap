@@ -36,8 +36,27 @@ Claude explains and reviews.
 | 5.5 | ⬜ | `notes/RESULTS.md` |
 | 6–7 | ⬜ | Portfolio pages (SET50 is the flagship, decided 29 Oct) |
 
+## External Dataset (Required)
+- The backtest requires an external Mendeley dataset that is not included in this repository because data/external/ is gitignored.
+- Authors: Bui Thanh Khoa & Tran Trong Huynh (2025)
+- License: CC BY 4.0
+- DOI: 10.17632/gybmm9t3mr.1
+- Required filename: data1_THA.csv
+- Save location: data/external/data1_THA.csv
+- SHA-256: 0cb504f42206604bf7f8a149a70098c4b2bef10bcfe83a4827c804327f1890f7
+- After downloading, place the CSV at the specified location before running the backtest.
+
 ## Run
+
+```bash
+./.venv/bin/pip install -r requirements.txt
+```
 
 ```bash
 ./.venv/bin/python audit.py 2>/dev/null
 ```
+
+```bash
+./.venv/bin/python backtest.py 2>/dev/null
+```
+
