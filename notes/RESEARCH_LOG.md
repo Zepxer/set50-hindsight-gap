@@ -204,3 +204,9 @@ Yahoo's `Dividends` column vs SET announcements. All three match on amount and X
 - **Other points:** README 172 → 171 (fixed; Claude's wording). Returns start Aug 2012. TDEX isn't reported yet.
   Sharpe has no risk-free rate.
 - **Small correction to the review:** the lists share 32 stocks after renames (29 before).
+
+### Step 19: Re-download test (Ikkyu's code, 31 Oct)
+- Downloaded all 60 Yahoo series again with the same dates, in memory, and compared with `data/cache/`.
+- Largest difference in any stock: 0.00008% (IVL, rounding). 0 of 60 exceed 0.1%.
+- So the saved data is what Yahoo serves today, and anyone rerunning the download gets the same prices.
+- **Limit:** this proves the data can be reproduced, not that it's correct. Yahoo's BANPU still matches our saved BPP series.
