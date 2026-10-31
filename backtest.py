@@ -130,7 +130,8 @@ def net_returns(returns, port):
 
 
 
-
+net_2012 = net_returns(return_2012, port_2012)
+net_2026 = net_returns(return_2026, port_2026)
 
 
 print(f"CAGR    2012: {cagr(net_2012):.2%}   2026: {cagr(net_2026):.2%}")
