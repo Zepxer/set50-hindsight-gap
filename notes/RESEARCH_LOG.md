@@ -187,3 +187,20 @@ Yahoo's `Dividends` column vs SET announcements. All three match on amount and X
 - **ADVANC:** 4.87 baht, XD 2024-08-19, record 2024-08-20, paid 2024-09-03. **Link still needed.**
 - **Limit:** only 3 dividends out of many, all from 2024, all large companies. It supports Yahoo's dividend data
   but doesn't prove it for every stock and year. Older or smaller stocks weren't tested.
+
+### Step 18: Outside review, 31 Oct (reviewer's points checked by Claude against the data)
+- **THAI:** confirmed. Flat at 3.207 until 2025-08-01, then 10.141 on 2025-08-04 (+216%); +273.5% for the month,
+  the largest monthly move in the data.
+  - News reports the same +216% first-day rise on its return to trading, from 3.32 to 10.50
+    ([Aviacionline](https://www.aviacionline.com/following-restructuring-thai-airways-shares-soar-over-200-on-stock-market-return),
+    [Kaohoon](https://www.kaohooninternational.com/?p=562518)).
+  - So it looks like a real price move, not a Yahoo error. Not yet settled: whether the restructuring changed what
+    an old share was worth.
+  - THAI is in both lists. That month adds +0.55 pp to the monthly difference, about +0.04 pp/yr to the gap.
+- **Power:** confirmed. Real σ of the difference 3.77%/yr, so the detectable gap is 2.79%/yr (plan: 8.4%, 6.2%).
+- **Gap by period:** confirmed. Sum of the monthly gap: 2012–2019 +49.8 pp, 2020–2026 +6.7 pp (2020–2023 about −0.3 pp).
+  This split was **not in PLAN.md**, so it must be labelled post hoc (PLAN.md section 8).
+- **pandas 3.1.0:** confirmed as the installed version. The reviewer's point about 2.x filling gaps wasn't tested here.
+- **Other points:** README 172 → 171 (fixed; Claude's wording). Returns start Aug 2012. TDEX isn't reported yet.
+  Sharpe has no risk-free rate.
+- **Small correction to the review:** the lists share 32 stocks after renames (29 before).
