@@ -268,3 +268,10 @@ Yahoo's `Dividends` column vs SET announcements. All three match on amount and X
 - **Result:** gap 3.75%/yr, t = 3.81, 95% CI [1.82%, 5.68%]. Headline stays 3.97%, t = 3.98.
 - Rebalancing frequency barely changes the gap. Noise in the yearly difference stays about the same (about 3.7%/yr vs 3.77%/yr).
 - `print_gap` now takes periods per year. `cagr` and `sharpe` still assume 12, so they aren't used on the quarterly series.
+
+### Step 26: Charts (Ikkyu's code, `charts.py`, 31 Oct–1 Nov)
+- **Chart 1:** growth of 100 baht, ending at 519 (2026 list), 302 (2012 list), 220 (TDEX). The first point is end of Aug 2012, so lines start near 103.
+- **Chart 2:** stocks held. The 2012 list holds 41–42; the 2026 list goes from 35 to 49, crossing around 2018.
+- **Chart 3:** headline and both sensitivities with 95% CIs. No bar touches zero. All three share the same data, so they aren't separate proofs.
+- **Chart 4 (post hoc):** cumulative gap, +49.8 points by end 2019 and +56.5 at the end. Shows when the gap appeared, not why, and not that it has ended.
+- **Colours:** blue and orange follow each list across charts; TDEX is dashed green; differences are grey. The three colours passed a colour-blind check.

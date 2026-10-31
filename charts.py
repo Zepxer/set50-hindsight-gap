@@ -96,7 +96,7 @@ plt.axhline(0,
             color="black", 
             linewidth=1)
 plt.grid(alpha=0.3)
-plt.title("plt.title(Most of the Gap Built Up Before 2020\n(post hoc, not in the frozen plan)")
+plt.title("Most of the Gap Built Up Before 2020\n(post hoc, not in the frozen plan)")
 plt.ylabel("Cumulative gap (percentage points)")
 plt.tight_layout()
 plt.savefig("charts/chart4.png", dpi=200)
