@@ -102,6 +102,6 @@ AWC, COM7, CRC, GPSC, GULF, MRDIYT, MTC, OR, OSP, SCGP, TFG, TIDLOR, TLI, WHA.
 predecessor's history. It stays in, and it's in the 2026 list for the headline too.
 
 ## D-15: Sensitivity 2 uses quarters ending Jan, Apr, Jul, Oct (2026-10-31)
-Ikkyu chose this before any quarterly returns were run. `resample("QE-OCT")` gives 57 quarterly returns from
-2012-07-31 to 2026-10-31, the same start and end as the monthly test, and keeps BANPU's last price.
+Ikkyu chose this before any quarterly returns were run. `resample("QE-OCT")` gives 57 quarterly returns, the first at
+2012-10-31 and the last at 2026-10-31. The starting price is 2012-07-31, the same start and end as the monthly test, and keeps BANPU's last price.
 Calendar quarters would start returns in Oct 2012 and cut the last quarter short.

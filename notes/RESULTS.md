@@ -1,3 +1,8 @@
+## SET50 hindsight gap: results
+
+How much does testing today’s SET50 on the past flatter a backtest, compared with the list an investor could actually have picked in 2012? This compares the July 2012 list with the July 2026 list, from July 2012 to October 2026, equal weight and rebalanced monthly, with 0.15% trading costs. Prices are from Yahoo, plus a Mendeley dataset for INTUCH, old GULF and BANPU.
+
+
 ## Headline 
 - The 2026 SET50 hindsight list outperformed the July 2012 SET50 list by 3.97 percentage points per year in annualized arithmetic returns (t = 3.98, 95% CI [2.01%, 5.92%]), under the pre-committed dropped-stock rule.
 - In a backtest, the 2026 list returned about 4 percentage points more per year than the 2012 list, but an investor in 2012 could not have known the 2026 list.
@@ -27,6 +32,7 @@
 - Quarterly rebalancing: The gap is 3.75% per year (t = 3.81, 95% CI [1.82%, 5.68%]). Quarters end in January, April, July and October (D-15).
 
 - How to read these results:
+    - Removing the 14 stocks without July 2012 prices cuts the gap from 3.97% to 3.00%. So roughly 1 point a year comes from later listings, and roughly 3 points from which companies already trading in 2012 ended up on today’s list. This isn’t an exact breakdown, because the lists hold different numbers of stocks and removing stocks changes every other weight.
     - Both tests still show a positive return gap.
     - They support the headline result but do not replace it.
     - Both use the same underlying data, so they are not independent proofs.
@@ -50,8 +56,8 @@
 - Comparisons: Thai market results and US Quantz Dow results are not directly comparable.
 - Full details: All data checks and their limitations are documented in DATA_CHECKS.md.
 - TDEX: Didn’t check whether Yahoo’s adjusted prices include every fund distribution. If some are missing, TDEX’s 5.70% is too low.
-
-## Deviations 
+- T-test: the plain t-test assumes the monthly gaps are independent of each other. If they aren’t, the t-stat and CI could be off.
+## Deviations from the frozen plan
 - BANPU: switched to Mendeley (D-11).
 - TRUE: removed the fake jump (D-12). The ratio was in the plan, but the fix came after the first run.
 - Effect: together, 4.00% to 3.97%.

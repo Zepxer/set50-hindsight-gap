@@ -264,7 +264,7 @@ Yahoo's `Dividends` column vs SET announcements. All three match on amount and X
 - The gap calculation is now a function, `print_gap`, tested by reproducing the headline exactly.
 
 ### Step 25: Sensitivity 2, quarterly rebalancing (Ikkyu's code, 31 Oct)
-- Quarters end Jan, Apr, Jul, Oct (D-15). 57 quarterly returns from 2012-07-31 to 2026-10-31, using both full lists.
+- Quarters end Jan, Apr, Jul, Oct (D-15). 57 quarterly returns, first at 2012-10-31 and last at 2026-10-31 (starting price 2012-07-31), using both full lists.
 - **Result:** gap 3.75%/yr, t = 3.81, 95% CI [1.82%, 5.68%]. Headline stays 3.97%, t = 3.98.
 - Rebalancing frequency barely changes the gap. Noise in the yearly difference stays about the same (about 3.7%/yr vs 3.77%/yr).
 - `print_gap` now takes periods per year. `cagr` and `sharpe` still assume 12, so they aren't used on the quarterly series.
@@ -290,3 +290,8 @@ Yahoo's `Dividends` column vs SET announcements. All three match on amount and X
 - **Passed:** a separate rebuild outside the project's code matched every headline, sensitivity and scorecard number. `PLAN.md`'s only change since the freeze is adding the swap ratios.
 - **Open:** RESULTS.md has no section naming deviations from the plan (BANPU source, TRUE fix after the first run); Chart 1's log line runs after `savefig`; `sources/SOURCES.md` lacks the later sources; no Git remote.
 - **Not covered:** a fresh package install, a fresh Yahoo download (see Step 19), rerunning `checks.py`, and reopening outside links. The rebuild uses the same data and my reading of the same rules, so it can't catch shared data errors.
+
+### Step 30: Second outside review (Ikkyu shared it, 1 Nov; points checked by Claude)
+- **Confirmed:** Chart 1's saved PNG was stale and linear; RESULTS.md had no opening; Sensitivity 1's meaning wasn't spelled out; the t-test's independence assumption wasn't stated; D-15's date wording was wrong (fixed here and in Step 25).
+- **Not confirmed:** the review says the plan promised the independence limitation. It isn't in `PLAN.md`, `Raw_PLAN.md` or the Revised Plan doc. The Flaw Audit doc wasn't searched. It's a valid limitation either way.
+- **Side check (post hoc, Claude's scratch code, not project code):** the monthly gap's lag-1 autocorrelation is −0.01. A Newey-West t with 6 lags is 3.59, against the plain 3.98.
