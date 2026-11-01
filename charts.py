@@ -27,11 +27,12 @@ plt.plot(
 
 plt.title("100 Baht Grew to 519 (2026 List), "
     "302 (2012 List) and 220 (TDEX)")
-plt.ylabel("Value of 100 baht")
+plt.ylabel("Value of 100 baht (log scale)")
 plt.legend()
 plt.grid(alpha=0.3)
-plt.savefig("charts/chart1.png", dpi=200)
 plt.yscale("log")
+plt.savefig("charts/chart1.png", dpi=200)
+
 plt.figure()
 
 

@@ -51,6 +51,12 @@
 - Full details: All data checks and their limitations are documented in DATA_CHECKS.md.
 - TDEX: Didn’t check whether Yahoo’s adjusted prices include every fund distribution. If some are missing, TDEX’s 5.70% is too low.
 
+## Deviations 
+- BANPU: switched to Mendeley (D-11).
+- TRUE: removed the fake jump (D-12). The ratio was in the plan, but the fix came after the first run.
+- Effect: together, 4.00% to 3.97%.
+- Timing: month-end closes stand in for the first trading day.
+
 ## Post hoc: (not part of the frozen plan)
 - This split wasn't in PLAN.md so it is exploratory.
 - By the end of 2019: The cumulative return gap had reached +49.8 percentage points.

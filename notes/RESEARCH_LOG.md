@@ -284,3 +284,9 @@ Yahoo's `Dividends` column vs SET announcements. All three match on amount and X
 ### Step 28: Plan doc preview filled (Claude, 1 Nov)
 - Filled the Revised Plan doc's headline and scorecard with final numbers. Cashed-out and total-loss rows are marked not run. The early 12-stock table now points to `research_draft_12_stocks.md`.
 - That doc still shows the old schedule, and it promises a log axis on Chart 1. `PLAN.md` wins where they differ.
+
+### Step 29: Final full check (Claude, 1 Nov)
+- **Passed:** clean clone ran `audit.py`, `backtest.py` and `charts.py`; two runs identical; charts byte-identical to the committed ones; Mendeley hash and package versions match.
+- **Passed:** a separate rebuild outside the project's code matched every headline, sensitivity and scorecard number. `PLAN.md`'s only change since the freeze is adding the swap ratios.
+- **Open:** RESULTS.md has no section naming deviations from the plan (BANPU source, TRUE fix after the first run); Chart 1's log line runs after `savefig`; `sources/SOURCES.md` lacks the later sources; no Git remote.
+- **Not covered:** a fresh package install, a fresh Yahoo download (see Step 19), rerunning `checks.py`, and reopening outside links. The rebuild uses the same data and my reading of the same rules, so it can't catch shared data errors.
