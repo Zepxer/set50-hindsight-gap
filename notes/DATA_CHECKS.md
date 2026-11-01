@@ -9,9 +9,9 @@ including the ones that found nothing.
 2. Stock Comparison: Compared 50 stocks; BANPU was the only incorrect series.
 3. TRUE: Fake +68.6% jump from a stock swap; adjusted prices from 3 Mar 2023 by 0.60018.
 4. INTUCH: Dividend was already adjusted; no change needed. The suspected fix would create a fake +5.9% gain.
-5. BANPU: Yahoo data matches BPP rather than the actual BANPU series; issue disclosed.
-6. Corporate actions: Reviewed ticker changes and stock swaps; unresolved cases disclosed.
-7. Price coverage: Checked missing and incomplete price histories; limitations documented.
+5. Rerun: Two runs produced identical results (3.97%, t = 3.98).
+6. Renames: No artificial price jumps found for TTB, BDMS, or TU at their rename dates.
+7. Chains: INTUCH (+1.59%) and GULF (+1.75%) showed no sign of incorrect swap ratios.
 8. Dividends: All three tested dividends matched official announcements.
 9. Stock count: Portfolio sizes changed over time; Sensitivity 1 included.
 10. Re-download: All 60 price series reproduced with differences below 0.1%.
@@ -58,7 +58,7 @@ including the ones that found nothing.
 ## 5. Rerun test
 - Did: Ran backtest.py twice on 30 Oct.
 - Found: Identical output (3.97%, t = 3.98).
-- Limit: Same saved files only. It does not re-download from Yahoo. (See section 10)
+- Limit: Same saved files only. It does not re-download from Yahoo. See section 10
 
 ## 6. Renames (TTB, BDMS, TU)
 - Methods: Listed each stock's 4 largest daily moves, and printed TTB around 7 May 2021.
@@ -121,7 +121,7 @@ The only revision was BANPUU → BANPU, which refers to the same company and doe
 - The explanation that Yahoo shows BPP's history is inferred, not confirmed.
 - BANPU's last 19 months are missing from both lists.
 - BANPU and TRUE correction effects were measured only together.
-- BEM was fromed around 2015, but Yahoo shows prices from 2012. Not confirm.
+- BEM was formed around 2015, but Yahoo shows prices from 2012. Not confirmed.
 
 
 
