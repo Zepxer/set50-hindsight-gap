@@ -12,11 +12,13 @@ Claude explains and reviews.
 |---|---|
 | `data/` | The two SET50 lists, the audit table, and `cache/` (downloaded prices, not committed) |
 | `sources/` | `SOURCES.md` (every outside fact and where it came from) and `wayback/` (saved SET pages) |
-| `notes/` | `DECISIONS.md` (every choice and why), `RESEARCH_LOG.md` (every research step), `SCHEDULE.md`, `quantz-lessons.md` |
+|| `notes/` | `RESULTS.md` (the final results), `DATA_CHECKS.md` (every data check), `DECISIONS.md` (every choice and why), `RESEARCH_LOG.md` (every research step), `SCHEDULE.md`, `quantz-lessons.md` |
 | `PLAN.md` | The frozen plan, committed before any backtest code |
 | `backtest.py` | The backtest: prints the headline and scorecard (written by Ikkyu) |
 | `checks.py` | The data checks (written by Ikkyu) |
 | `audit.py` | Downloads both lists and records missing data (written by Ikkyu from a description, 26 Oct; replaced Claude's first version) |
+| `charts.py` | Makes the four charts (written by Ikkyu) |
+| `charts/` | The four saved charts |
 
 ## Plan
 
@@ -30,10 +32,10 @@ Claude explains and reviews.
 | 3.2 | ✅ | Monthly returns and equal-weight portfolios (171 monthly returns) |
 | 3.3 | ✅ | Trading costs (0.15%) at each rebalance |
 | 3.4 | ✅ | Scorecard: CAGR, Sharpe, max drawdown, t-statistic; headline printed |
-| 4 | 🟡 | Checks (`notes/DATA_CHECKS.md`): BANPU, TRUE, INTUCH, renames, chains, rerun done; dividends, stock count, re-download, 2012 news left |
-| 4.5 | ⬜ | Sensitivity: 2026 list limited to July 2012 stocks; quarterly rebalancing |
-| 5 | ⬜ | `charts.py` |
-| 5.5 | ⬜ | `notes/RESULTS.md` |
+| 4 | ✅ | Checks (`notes/DATA_CHECKS.md`): 12 checks, including what wasn't checked |
+| 4.5 | ✅ | Sensitivity: 2026 list limited to July 2012 stocks; quarterly rebalancing |
+| 5 | ✅ | `charts.py` |
+| 5.5 | ✅ | `notes/RESULTS.md` |
 | 6–7 | ⬜ | Portfolio pages (SET50 is the flagship, decided 29 Oct) |
 
 ## External Dataset (Required)
@@ -49,6 +51,10 @@ Claude explains and reviews.
 ## Run
 
 ```bash
+python3 -m venv .venv
+```
+
+```bash
 ./.venv/bin/pip install -r requirements.txt
 ```
 
@@ -60,3 +66,6 @@ Claude explains and reviews.
 ./.venv/bin/python backtest.py 2>/dev/null
 ```
 
+```bash
+./.venv/bin/python charts.py 2>/dev/null
+```

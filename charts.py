@@ -100,4 +100,3 @@ plt.title("Most of the Gap Built Up Before 2020\n(post hoc, not in the frozen pl
 plt.ylabel("Cumulative gap (percentage points)")
 plt.tight_layout()
 plt.savefig("charts/chart4.png", dpi=200)
-

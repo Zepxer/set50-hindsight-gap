@@ -275,3 +275,8 @@ Yahoo's `Dividends` column vs SET announcements. All three match on amount and X
 - **Chart 3:** headline and both sensitivities with 95% CIs. No bar touches zero. All three share the same data, so they aren't separate proofs.
 - **Chart 4 (post hoc):** cumulative gap, +49.8 points by end 2019 and +56.5 at the end. Shows when the gap appeared, not why, and not that it has ended.
 - **Colours:** blue and orange follow each list across charts; TDEX is dashed green; differences are grey. The three colours passed a colour-blind check.
+
+### Step 27: Clean-copy run (Claude, 1 Nov)
+- Cloned the last commit into a temporary folder, added the two gitignored data folders, and ran `audit.py`, `backtest.py` and `charts.py`.
+- All ran, and the output matched: 3.97% (t = 3.98), 3.00% (t = 4.40), 3.75% (t = 3.81). All four charts were produced.
+- **Limit:** this used the saved prices, not a fresh download (see the re-download test, Step 19). It also used the existing `.venv`, not a fresh install.
