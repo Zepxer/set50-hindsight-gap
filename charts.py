@@ -31,7 +31,9 @@ plt.ylabel("Value of 100 baht")
 plt.legend()
 plt.grid(alpha=0.3)
 plt.savefig("charts/chart1.png", dpi=200)
+plt.yscale("log")
 plt.figure()
+
 
 count_2012 = return_2012.iloc[1:].notna().sum(axis=1)
 count_2026 = return_2026.iloc[1:].notna().sum(axis=1)

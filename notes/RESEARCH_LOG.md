@@ -280,3 +280,7 @@ Yahoo's `Dividends` column vs SET announcements. All three match on amount and X
 - Cloned the last commit into a temporary folder, added the two gitignored data folders, and ran `audit.py`, `backtest.py` and `charts.py`.
 - All ran, and the output matched: 3.97% (t = 3.98), 3.00% (t = 4.40), 3.75% (t = 3.81). All four charts were produced.
 - **Limit:** this used the saved prices, not a fresh download (see the re-download test, Step 19). It also used the existing `.venv`, not a fresh install.
+
+### Step 28: Plan doc preview filled (Claude, 1 Nov)
+- Filled the Revised Plan doc's headline and scorecard with final numbers. Cashed-out and total-loss rows are marked not run. The early 12-stock table now points to `research_draft_12_stocks.md`.
+- That doc still shows the old schedule, and it promises a log axis on Chart 1. `PLAN.md` wins where they differ.

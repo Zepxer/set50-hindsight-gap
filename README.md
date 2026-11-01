@@ -12,7 +12,7 @@ Claude explains and reviews.
 |---|---|
 | `data/` | The two SET50 lists, the audit table, and `cache/` (downloaded prices, not committed) |
 | `sources/` | `SOURCES.md` (every outside fact and where it came from) and `wayback/` (saved SET pages) |
-|| `notes/` | `RESULTS.md` (the final results), `DATA_CHECKS.md` (every data check), `DECISIONS.md` (every choice and why), `RESEARCH_LOG.md` (every research step), `SCHEDULE.md`, `quantz-lessons.md` |
+| `notes/` | `RESULTS.md` (the final results), `DATA_CHECKS.md` (every data check), `DECISIONS.md` (every choice and why), `RESEARCH_LOG.md` (every research step), `SCHEDULE.md`, `quantz-lessons.md` |
 | `PLAN.md` | The frozen plan, committed before any backtest code |
 | `backtest.py` | The backtest: prints the headline and scorecard (written by Ikkyu) |
 | `checks.py` | The data checks (written by Ikkyu) |
