@@ -3,3 +3,5 @@ __pycache__/
 data/cache/
 data/external/
 .DS_Store
+notes/SCHEDULE.md
+notes/PORTFOLIO_DESIGN_BRIEF.md

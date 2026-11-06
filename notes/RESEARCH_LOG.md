@@ -65,7 +65,7 @@ One entry per step: what was done, what was found, what it means.
 - **Verdict on option A:** **failed for 8 of the 9.** The dataset was built the same way as ours (from Yahoo,
   stocks alive today), so it can't fill survivorship holes. It **does** help with INTUCH and old GULF, and
   maybe BANPU.
-- **Lesson for the portfolio:** a free dataset built from Yahoo has Yahoo's survivorship bias. Check where
+- **Lesson:** a free dataset built from Yahoo has Yahoo's survivorship bias. Check where
   data comes from before trusting it to fix a bias.
 - **Next:** Ikkyu decides:
   1. Should the 8 still-missing stocks use option B (dropped, with the bias stated)?
@@ -112,7 +112,7 @@ One entry per step: what was done, what was found, what it means.
 ### Step 9: PLAN.md frozen (Ikkyu)
 - Written by Ikkyu. Claude converted it from RTF to Markdown (formatting only).
   The raw first draft is kept in `notes/Raw_PLAN.md`.
-- Committed as `dc0cd4a` on 27 Oct at 16:59, before any backtest code exists.
+- Committed as `2732d70` on 27 Oct at 16:59, before any backtest code exists. (It was `dc0cd4a` until 6 Nov, when an unrelated planning file was removed from the history before publishing. The date and contents are unchanged.)
 
 ## 28 Oct: found while building backtest.py
 

@@ -36,7 +36,6 @@ Claude explains and reviews.
 | 4.5 | ✅ | Sensitivity: 2026 list limited to July 2012 stocks; quarterly rebalancing |
 | 5 | ✅ | `charts.py` |
 | 5.5 | ✅ | `notes/RESULTS.md` |
-| 6–7 | ⬜ | Portfolio pages (SET50 is the flagship, decided 29 Oct) |
 
 ## External Dataset (Required)
 - The backtest requires an external Mendeley dataset that is not included in this repository because data/external/ is gitignored.
