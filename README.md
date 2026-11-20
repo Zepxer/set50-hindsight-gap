@@ -3,8 +3,10 @@
 **Question:** how much does testing *today's* SET50 on the past flatter a backtest, compared with the
 list an investor could actually have picked in 2012?
 
-Method from Quantz D-048, applied to the Thai market. All code in this project is written by Ikkyu;
-Claude explains and reviews.
+Method from an experiment in Quantz, a US research project that Claude (an AI coding agent) built
+and I studied: it tested today's Dow 30 against the 2008 Dow 30 over the same dates. Here the same
+test is applied to the Thai market. All code in this project is written by Ikkyu; Claude explains
+and reviews.
 
 ## Folders
 
