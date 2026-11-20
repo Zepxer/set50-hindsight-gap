@@ -12,7 +12,7 @@ Claude explains and reviews.
 |---|---|
 | `data/` | The two SET50 lists, the audit table, and `cache/` (downloaded prices, not committed) |
 | `sources/` | `SOURCES.md` (every outside fact and where it came from) and `wayback/` (saved SET pages) |
-| `notes/` | `RESULTS.md` (the final results), `DATA_CHECKS.md` (every data check), `DECISIONS.md` (every choice and why), `RESEARCH_LOG.md` (every research step), `SCHEDULE.md`, `quantz-lessons.md` |
+| `notes/` | `RESULTS.md` (the final results), `DATA_CHECKS.md` (every data check), `DECISIONS.md` (every choice and why), `RESEARCH_LOG.md` (every research step) |
 | `PLAN.md` | The frozen plan, committed before any backtest code |
 | `backtest.py` | The backtest: prints the headline and scorecard (written by Ikkyu) |
 | `checks.py` | The data checks (written by Ikkyu) |
@@ -27,7 +27,7 @@ Claude explains and reviews.
 | 1 | ✅ | Find the 2012 SET50 list |
 | 2 | ✅ | Download prices, audit missing data |
 | 2.5 | ✅ | Research the 12 missing stocks; Mendeley check; `PLAN.md` frozen (27 Oct) |
-| 3.0 | ✅ | Write my own `audit.py` (matches the original exactly) |
+| 3.0 | ✅ | Rewrite `audit.py` myself; its output matches Claude's first version exactly (72 rows, the same 12 no-data and 16 late-start stocks) |
 | 3.1 | ✅ | `backtest.py`: one price table, 3482 days × 61 stocks (renames, drops, INTUCH/GULF chains) |
 | 3.2 | ✅ | Monthly returns and equal-weight portfolios (171 monthly returns) |
 | 3.3 | ✅ | Trading costs (0.15%) at each rebalance |
